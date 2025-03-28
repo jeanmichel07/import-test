@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List{% endblock %}
+
+{% block body %}
+    <h1>Liste</h1>
+    <div class="">
+        <a class="btn btn-secondary" href="{{ path('import_excel') }}"> Nouveau fichier </a>
+    </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div>
+        <table class="table">
+            <tr>
+                <th>Compte Affaire</th>
+                <th>Compte évènement (Veh)</th>
+                <th>Compte dernier évènement (Veh)</th>
+                <th>Numéro de fiche</th>
+                <th>Civilité</th>
+            </tr>
+            {% for d in data %}
+                <tr>
+                    <td>{{ d.businessAccount }}</td>
+                    <td>{{ d.eventAccount }}</td>
+                    <td>{{ d.accountLastEvent }}</td>
+                    <td>{{ d.fileNumber }}</td>
+                    <td>{{ d.civility }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    <div>
+
+{% endblock %}

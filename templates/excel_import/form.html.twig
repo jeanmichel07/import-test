@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Importer un fichier Excel{% endblock %}
+
+{% block body %}
+    <h1>Importer un fichier Excel</h1>
+    <div>  
+        <a class="btn btn-secondary" href="{{ path('list') }}">Liste</a>
+    </div>
+    <hr>
+    {% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
